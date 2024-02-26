@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../dist/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="py-9 px-9 bg-bg_hero" x-data="{navOpen : true}">
+      <div class="container mx-auto">
+        <div class="flex items-center justify-between">
+          <img src="../public/assets/umbrella.svg" class="order-1 sm:order-2" />
+          <img @click="navOpen = !navOpen" src="../public/assets/toogle.svg" class="lg:hidden order-2 sm:order-1"/>
+          <div class="order-2 hidden lg:block">
+            <ul class="flex gap-8">
+              <li class="text-textnav font-bold text-sm font-Circular">
+                <a href="">Home</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">Insurance</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">Wellness</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">Solution</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">About Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="order-3 hidden sm:block space-x-3">
+            <button
+            class="grow bg-base_blue text-white px-8 py-4 font-bold rounded-xl text-sm"
+          >
+            Get In Touch
+          </button>
+          <button
+            class="grow px-8 py-4 font-bold text-base_blue rounded-xl text-sm outline outline-offset-2 outline-2 outline-base_blue"
+          >
+            Login
+          </button>
+          </div>
+        </div>
+      </div>
+      <div x-show="navOpen"
+        x-data="{open : false}"
+        class="z-50 fixed bottom-0 right-0 left-0 p-4 border lg:hidden bg-white"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+      >
+        <ul class="flex justify-between">
+          <li>
+            <a
+              href=""
+              class="flex justify-center flex-col items-center gap-1 text-gagak"
+            >
+              <ion-icon name="home-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Home</span>
+            </a>
+          </li>
+          <li>
+            <button
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="albums-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Insurance</span>
+            </a>
+          </li>
+          <li>
+            <button
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="sparkles-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Wellness</span>
+            </a>
+          </li>
+          <li>
+            <button
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="call-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Solution</span>
+            </a>
+          </li>
+          <li>
+            <button
+              @click="open = !open"
+            
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="menu-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">More</span>
+            </a>
+          </li>
+        </ul>
+        <div
+          x-show="open"
+          class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-4 w-3/4"
+          x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+        >
+          <button
+            class="grow bg-white px-8 py-4 font-bold text-textnav rounded-3xl text-sm"
+          >
+            Login
+          </button>
+          <button
+            class="grow bg-purple px-8 py-4 font-bold text-white rounded-3xl text-sm"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="bg-bg_hero">
+      <div class="container mx-auto px-9 py-16 lg:py-10">
+        <div class="grid grid-cols-12 items-center">
+          <div class="col-span-12 lg:col-span-6 order-2 lg:order-1">
+            <div class="flex flex-col">
+            <h1 class="text-3xl lg:text-5xl font-poppins font-semibold ">
+              <span class="text-base_blue">The Best</span> And
+              <span class="text-base_blue">Experienced Insurance</span>
+              Service For Your.
+              </h1>
+              <p class="mt-6">We work with some of the leading insurance companies to develop the best insurance tailored to meet your insurance needs</p>
+              <div class="space-x-3 mt-6">
+                <button
+                class="grow bg-base_blue text-white px-8 py-4 font-bold text-textnav rounded-xl text-sm"
+              >
+              Get an estimated quote
+              </button>
+              <button
+                class="mt-3 lg:mt-0 grow px-8 py-4 font-bold text-base_blue rounded-xl text-sm outline outline-offset-2 outline-2 outline-base_blue"
+              >
+              Schedule call
+              </button>
+              </div>
+              <p class="mt-14">trusted and loved by 350+ tech first teams</p>
+              <div class="flex flex-row">
+                <img src="../public/assets/logo/logo1.svg"/>
+                <img src="../public/assets/logo/logo2.svg"/>
+                <img src="../public/assets/logo/logo3.svg"/>
+              </div>
+            </div>
+            </div>
+            <div class="col-span-12 lg:col-span-6 order-1 lg:order-2">
+              <img src="../public/assets/image01.png"/>
+            </div>
+            </div>
+            </div>
+            </section>
+
+    <!-- Step -->
+    <section>
+      <div class="container mx-auto px-9 py-16 lg:py-40">
+        <div class="grid grid-cols-12 items-center">
+          <div class="col-span-12 lg:col-span-12 order-2 lg:order-1">
+            <h1 class="text-center font-semibold text-4xl text-font_header">4 Easy Steps and Get Insured</h1>
+            <p class="px-4 lg:px-32 text-center py-8 text-xl text-font_desc">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis in nulla in. Placerat vel proin lacus quam condimentum sit in. </p>
+            </div>
+            <div class="col-span-12 lg:col-span-12 order-2 lg:order-1 mt-16">
+              <div class="flex flex-col lg:flex-row justify-around gap-8">
+                <div class="flex flex-col text-center items-center ">
+                  <img class="w-20 h-20" src="../public/assets/step/ic01.svg" alt="">
+                  <p class="mt-8 text-xl text-font_header">Schedule call</p>
+                </div>
+                <div class="flex flex-col text-center items-center">
+                  <img class="w-20 h-20" src="../public/assets/step/ic02.svg" alt="">
+                  <p class="mt-8 text-xl text-font_header">Tell us about yourself</p>
+                </div>
+                <div class="flex flex-col text-center items-center">
+                  <img class="w-20 h-20" src="../public/assets/step/ic03.svg" alt="">
+                  <p class="mt-8 text-xl text-font_header">Select your plan </p>
+                </div>
+                <div class="flex flex-col text-center items-center">
+                  <img class="w-20 h-20" src="../public/assets/step/ic04.svg" alt="">
+                  <p class="mt-8 text-xl text-font_header">Activate your police</p>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+            </section>
+
+            <section>
+              <div class="container mx-auto px-9 py-16 lg:py-40">
+                <div class="grid grid-cols-12 items-center">
+                  <div class="col-span-12 lg:col-span-5 items-center lg:items-start">
+                    <h1 class="text-4xl text-center lg:text-start text-font_header font-semibold">The Benefit You Will Get</h1>
+                    </div>
+                    <div class="col-span-12 lg:col-span-6">
+                      <p class="text-xl text-center lg:text-start text-font_desc">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis in nulla in. Placerat vel proin lacus quam condimentum sit in. </p>
+                    </div>
+                    <div class="col-span-12 lg:col-span-12 order-2 lg:order-1 mt-16">
+                      <div class="flex flex-col lg:flex-row justify-around gap-8">
+                        <div class="flex flex-col text-start items-start bg-gb_benefit p-8">
+                          <img src="../public/assets/insurance.svg" alt="" class="">
+                          <h1 class="text-font_header pt-6 font-medium text-2xl">Guarantee Insurance
+                            That Will Not Expire</h1>
+                            <p class="pt-6 text-font_desc text-[16px]">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis.</p>
+                          </div>
+
+                          <div class="flex flex-col text-start items-start bg-gb_benefit p-8">
+                            <img src="../public/assets/option.svg" alt="">
+                            <h1  class="text-font_header pt-6 font-medium text-2xl">Many Insurance Options
+                              For you</h1>
+                              <p class="pt-6 text-font_desc text-[16px]">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis.</p>
+                            </div>
+
+                            <div class="flex flex-col text-start items-start bg-gb_benefit p-8">
+                              <img src="../public/assets/cities.svg" alt="">
+                              <h1  class="text-font_header pt-6 font-medium text-2xl">Branch Offices Available
+                                In Many Cities</h1>
+                                <p class="pt-6 text-font_desc text-[16px]">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis.</p>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>
+
+    <!-- Choice -->
+    <section>
+      <div class="container mx-auto px-9 py-16 lg:py-10">
+        <div class="grid grid-cols-12 items-center gap-8">
+          <div class="col-span-12 lg:col-span-6 order-1 lg:order-1">
+            <div class="flex flex-col">
+              <h1 class="font-semibold text-[40px] text-font_header">Start With The Insurance Of
+                Your Choice</h1>
+                <p class="text-font_desc text-xl mt-8">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis in nulla in. Placerat vel proin lacus quam condimentum sit in. </p>
+                <button
+                class="grow bg-base_blue text-white px-8 py-4 font-bold text-textnav rounded-xl text-sm mt-8"
+              >
+              Check All
+              </button>
+            </div>
+            </div>
+            <div class="col-span-12 lg:col-span-6 order-2 lg:order-2 mt-12 grid grid-cols-2 gap-4 md:grid lg:justify-items-end justify-items-center items-center">
+              <img src="../public/assets/choice/house.png" class="w-full"/>
+              <img src="../public/assets/choice/car.png" class="w-full"/>
+              <img src="../public/assets/choice/insurance.png"  class="mt-4 w-full"/>
+              <img src="../public/assets/choice/healt.png"  class="mt-4 w-full"/>
+            </div>
+          
+            </div>
+            </div>
+            </section>
+
+<!-- Trusted -->
+            <section>
+              <div class="container mx-auto px-9 py-16 lg:py-10">
+                <div class="grid grid-cols-12 items-center gap-8">
+                  <div class="col-span-12 lg:col-span-6 order-1 lg:order-2">
+                    <div class="flex flex-col">
+                      <h1 class="font-semibold text-[40px] text-font_header">It’s Been More Than 35
+                        Years Trustred By Many
+                        Companies</h1>
+                        <p class="text-font_desc text-xl mt-8">Lorem ipsum dolor sit amet consectetur. Viverra quis enim eros massa aliquam quis in nulla in. Placerat vel proin lacus quam condimentum sit in. </p>
+                        
+                    </div>
+                    </div>
+                    <div class="col-span-12 lg:col-span-6 order-2 lg:order-1 mt-12 grid grid-cols-2 gap-4 md:grid lg:justify-items-end justify-items-center items-center">
+                      <img src="../public/assets/trusted/ten.png" class="w-full"/>
+                      <img src="../public/assets/trusted/fivehundred.png" class="w-full"/>
+                      <img src="../public/assets/trusted/twentyfive.png"  class="mt-4 w-full"/>
+                      <img src="../public/assets/trusted/experience.png"  class="mt-4 w-full"/>
+                    </div>
+                  
+                    </div>
+                    </div>
+                    </section>
+
+    <!-- Footer -->
+    <section class="bg-bg_hero">
+      <div class="container mx-auto px-9 py-16 lg:py-10">
+        <div class="grid grid-cols-12 items-center gap-8">
+          <div class="col-span-12 lg:col-span-12 order-1 lg:order-2">
+            <div class="flex flex-col lg:flex-row justify-between">
+              <div class="flex flex-col">
+                <h1 class=" text-text_footer font-semibold text-xl">Learn</h1>
+                <p class="text-text_footer_desc text-[16px] lg:mt-5">Health Insurance</p>
+                <p  class="text-text_footer_desc text-[16px] lg:mt-3">Covered CA FAQs</p>
+              </div>
+              <div class="flex flex-col mt-5 lg:mt-0">
+                <h1  class=" text-text_footer font-semibold text-xl" >Information</h1>
+                <p  class="text-text_footer_desc text-[16px]  lg:mt-5">FAQ</p>
+                <p  class="text-text_footer_desc text-[16px] lg:mt-3">Blog</p>
+                <p  class="text-text_footer_desc text-[16px] lg:mt-3">Support</p>
+              </div>
+              <div class="flex flex-col mt-5 lg:mt-0">
+                <h1  class=" text-text_footer font-semibold text-xl">Company</h1>
+                <p class="text-text_footer_desc text-[16px]  lg:mt-5">About us</p>
+                <p class="text-text_footer_desc text-[16px] lg:mt-3">Careers</p>
+                <p class="text-text_footer_desc text-[16px] lg:mt-3">Contact us</p>
+              </div>
+              <div class="flex flex-col mt-5 lg:mt-0">
+                <h1  class=" text-text_footer font-semibold text-xl">Social</h1>
+                <p class="text-text_footer_desc text-[16px]  lg:mt-5">Facebook</p>
+                <p class="text-text_footer_desc text-[16px] lg:mt-3">Instagram</p>
+                <p class="text-text_footer_desc text-[16px] lg:mt-3">Twitter</p>
+              </div>
+            </div>
+            <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-color_hr">
+            </div>
+            
+            <div class="col-span-12 lg:col-span-12 order-1 lg:order-2">
+              <div class="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
+              
+                  <img src="../public/assets/umbrella.svg" alt="">
+                  <div class="flex flex-row gap-5">
+                    <h1>Terms</h1>
+                    <h1>Privacy</h1>
+                    <h1>Cookies</h1>
+                  </div>
+                  <div class="flex flex-row gap-4">
+                    <img src="../public/assets/sosmed/Facebook.png" alt="" class="h-10 w-10">
+                    <img src="../public/assets/sosmed/Instagram.png" alt=""  class="h-10 w-10">
+                    <img src="../public/assets/sosmed/Twitter.png" alt=""  class="h-10 w-10">
+                  </div>
+                  </div>
+                  </div>
+            </div>
+            </div>
+            </div>
+            </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
+</html>
